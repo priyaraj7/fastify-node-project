@@ -1,6 +1,7 @@
 const build = require('../../src/app');
 
 describe('Root route', () => {
+  let app;
   beforeEach(() => {
     app = build();
   });
