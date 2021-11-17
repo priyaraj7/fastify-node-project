@@ -17,6 +17,9 @@ containers:
     image: postgres:alpine
     ports:
       - 5432:5432
+    volumes:
+      - local: ./postgres-data
+        container: /var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: app
