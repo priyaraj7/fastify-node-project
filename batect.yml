@@ -25,8 +25,8 @@ containers:
       POSTGRES_USER: app
       POSTGRES_DB: db
 
-# for integrate testing
-   db-test:
+  # for integrate testing
+  db-test:
     image: postgres:alpine
     ports:
       - 5432:5432
@@ -69,8 +69,7 @@ tasks:
       container: build-fastify-env
       environment:
         PORT: 8080
-        POSTGRES_URI: postgres://app:password@db/db
+        POSTGRES_URI: postgres://app:password@db-test/db
       command: npm run test:watch
     dependencies:
       - db-test
-
