@@ -1,4 +1,5 @@
 const tempService = require('../../service/temp.service');
+const { postRequestbody, postResponse } = require('./temp.schema');
 
 const route = async (fastify) => {
   // get route api/v1/test  ---- regester in app.js
@@ -11,13 +12,17 @@ const route = async (fastify) => {
     reply.code(200).send(allTest);
   });
   // post route api/v1/test  ---- regester in app.js
-  fastify.post('/', async (request, reply) => {
-    fastify.log.info(`request with body ${request}`);
-    const { title } = request.body;
+  fastify.post(
+    '/',
+    { schema: { body: postRequestbody, response: postResponse } },
+    async (request, reply) => {
+      fastify.log.info(`request with body ${request}`);
+      const { title } = request.body;
 
-    const id = await save(title);
-    reply.code(201).send(id);
-  });
+      const id = await save(title);
+      reply.code(201).send(id);
+    }
+  );
 };
 
 module.exports = route;
