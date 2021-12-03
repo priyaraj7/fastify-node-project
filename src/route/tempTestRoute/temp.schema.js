@@ -9,6 +9,32 @@ const postRequestbody = {
   },
 };
 
+// for get response
+const getResponseBody = {
+  200: {
+    type: 'object',
+    required: ['temps'],
+    properties: {
+      temps: {
+        type: 'array',
+        items: {
+          type: 'object',
+          required: ['title', 'id'],
+          properties: {
+            id: {
+              type: 'string',
+            },
+            title: {
+              type: 'string',
+              minLength: 10,
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 const postResponse = {
   201: {
     type: 'object',
@@ -22,4 +48,5 @@ const postResponse = {
 module.exports = {
   postRequestbody,
   postResponse,
+  getResponseBody,
 };
