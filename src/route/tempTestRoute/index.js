@@ -19,8 +19,7 @@ const route = async (fastify) => {
     },
     async (request, reply) => {
       const allTest = await getAll();
-
-      reply.code(200).send(allTest);
+      reply.code(200).send({ temps: allTest });
     }
   );
   // post route api/v1/test  ---- regester in app.js
