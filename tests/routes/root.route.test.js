@@ -14,6 +14,6 @@ describe('Root route', () => {
       url: '/',
     });
     expect(res.statusCode).toBe(200);
-    expect(res.json()).toEqual({ hello: 'world!' });
+    expect(res.json()).toEqual({ hello: 'world!- check' });
   });
 });
