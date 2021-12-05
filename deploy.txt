@@ -11,3 +11,11 @@ Deploy on heroku - manually
 step 4:- Run docker image on heroku
    comamnd:- heroku container:release -a learn-fastify web
 
+
+
+/// M1 Mac steps change from step 3
+
+docker buildx build --platform linux/amd64 -t learn-fastify . 
+docker tag learn-fastify registry.heroku.com/learn-fastify/web
+docker push registry.heroku.com/learn-fastify/web  
+heroku container:release web -a learn-fastify  
